@@ -48,12 +48,12 @@ public class VariablePractice {
 		int x = 5;
 		int y = 7;
 		int z = 9;
-		int a;
+		int temp;
 		
-		a = x;
+		temp = x;
 		x = y;
 		y = z;
-		z = a;
+		z = temp;
 		
 		
 		System.out.println("x = " + x);
