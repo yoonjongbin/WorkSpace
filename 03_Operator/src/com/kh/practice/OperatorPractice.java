@@ -109,7 +109,7 @@ public class OperatorPractice {
 		int need_Bask = ((apple_Count % basket_Max) != 0)? ++apple_Sep : apple_Sep;
 		
 		
-		System.out.println("필요한 바구니의 수 : " + apple_Sep);
+		System.out.println("필요한 바구니의 수 : " + need_Bask);
 		
 	}
 }

@@ -33,12 +33,5 @@ public class G_Compound {
 		
 		str += ", World!!"; // str = str +", World!";
 		System.out.println(str); // Hello, World!
-		
-		G_Compound g = new G_Compound();
-		g.method1();
-	}
-	
-	public void method1() {
-		
 	}
 }
