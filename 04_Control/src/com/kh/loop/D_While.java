@@ -136,20 +136,19 @@ public class D_While {
 		int try_C = 1;
 			
 		while(true) {
+			try_C++;
 			
 			System.out.println("1과 100 사이의 값 입력 > ");
 			input = sc.nextInt();
 			
 			if( input > random) {
 				System.out.println("더 작은 수를 입력하세요.");
-				try_C++;
 				continue;
 			} else if( input < random) {
 				System.out.println("더 큰 수를 입력하세요.");
-				try_C++;
 				continue;
 			} else {
-				System.out.printf("%d번 만에 맞췄습니다.", try_C++);
+				System.out.printf("%d번 만에 맞췄습니다.", try_C);
 				break;
 				
 			}
