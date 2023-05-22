@@ -12,8 +12,8 @@ public class ArrayPractice {
 		// p.method1();
 		// p.method2();
 		//p.method3();
-		 p.method4();
-		// p.method5();
+		//p.method4();
+		p.method5();
 	}
 
 	/*
@@ -62,20 +62,33 @@ public class ArrayPractice {
 		String[] arr = { "된장찌개", "김치전", "라면", "떡볶이" };
 
 		String input = "";
+		
+		boolean send = false;
 
 		System.out.print("메뉴를 적어주세요 : ");
 		input = sc.nextLine();
 
-		if (input.equals(arr[0]) || input.equals(arr[1]) || input.equals(arr[2]) || input.equals(arr[3])) {
-			for (int i = 0; i < arr.length; i++) {
+		
+		/*for (int i = 0; i < arr.length; i++) {
 
-				if (input.equals(arr[i])) {
-					System.out.println("배달 가능");
-					break;
-				}
+			if (input.equals(arr[i])) {
+				send = true;
+				break;
+			}else {
+				continue;
 			}
-
-		} else System.out.println("배달 불가능");
+		}*/
+		
+		for(String i : arr) {
+			if(input.equals(i)) {
+				send = true;
+				break;
+			}else continue;
+		}
+		
+		if(send == true) System.out.println("배달 가능");
+		else System.out.println("배달 불가능");
+		
 
 	}
 
@@ -88,21 +101,37 @@ public class ArrayPractice {
 	 */
 	public void method4() {
 		
+		int count = 0;
+		String temp = "";
 		
-		String[] arr = new String[1];
-		String [] arr_Copy = null;
+		char [] arr_Copy = null;
+		
 		
 		System.out.print("주민등록번호 : \n");
-		arr[0] = sc.nextLine();
+		temp = sc.nextLine();
+		
+		char[] arr = new char[temp.length()];
+		
+		
+		for(int i = 0; i < temp.length(); i++) {
+			
+			arr[i] = temp.charAt(i);
+		}
 		
 		
 		arr_Copy = arr.clone();
 		
-		System.out.println(arr.charAt());
-		
-		for(int i = 0; i < 6; i++) {
-			arr_Copy. = '*';
+		for(char i : arr_Copy) {
+			
+			if(count > 7)	
+				arr_Copy[count] = '*';
+			count++;
 		}
+		
+		System.out.println(arr_Copy);
+		
+		
+		
 		
 	}
 
@@ -113,7 +142,24 @@ public class ArrayPractice {
 	 * 
 	 */
 	public void method5() {
+		
+		
+		String temp = ""; 
+		
+		
+		System.out.print("단어 입력 : ");
+		temp = sc.nextLine();
+		
+		char[] temp_ch = new char[temp.length()];
+		
+		for(int i = 0;  i < temp.length(); i++) {
+			temp_ch[i] = temp.charAt(i);
+		}
+		
+		for(int i = temp.length(); i > 0; i--) {
+			System.out.print(temp_ch[i - 1]);
+		}
+
 
 	}
-
 }
