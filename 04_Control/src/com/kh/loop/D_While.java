@@ -25,7 +25,8 @@ public class D_While {
 		//d.method2();
 		//d.method3();
 		//d.method4();
-		d.method5();
+		//d.method5();
+		d.method6();
 	}
 	
 	
@@ -155,5 +156,95 @@ public class D_While {
 				
 			
 		}
+	}
+	
+	/*
+	 * ---------------------------------
+	 * 1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료
+	 * ---------------------------------
+	 * 
+	 * 선택 > 1
+	 * 예금액 > 5000
+	 * 
+	 * 
+	 * 
+	 * ---------------------------------
+	 * 1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료
+	 * ---------------------------------
+	 * 
+	 * 선택 > 2
+	 * 츨금액 > 2000
+	 * 
+	 * ---------------------------------
+	 * 1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료
+	 * ---------------------------------
+	 * 
+	 * 선택 > 3
+	 * 출금액 > 10000
+	 * 
+	 * ---------------------------------
+	 * 1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료
+	 * ---------------------------------
+	 * 
+	 * 선택 > 4
+	 * 이용해주셔서 감사합니다.
+	 */
+	
+	
+	
+	
+	public void method6() {
+		
+		int choose = 0;
+		
+		int money = 0;
+		int input_M = 0;
+		int output_M = 0;
+		
+		boolean run = true;
+		
+		
+		
+		while(run) {
+			
+			System.out.println("---------------------------------");
+			System.out.println("1. 예금 | 2. 출금 | 3. 잔고 | 4. 종료");
+			System.out.println("---------------------------------\n\n");
+			
+			System.out.print("선택 > ");
+			
+			//Integer.parseInt : Integer
+			// String -> int
+			choose = Integer.parseInt(sc.nextLine());
+			
+			switch(choose) {
+				case 1 :
+					System.out.print("입금할 금액을 입력해주세요 : ");
+					input_M = Integer.parseInt(sc.nextLine());
+					money += input_M;
+					break;
+				case 2 : 
+					System.out.print("출금할 금액을 입력해주세요 : ");
+					output_M = Integer.parseInt(sc.nextLine());
+					
+					if(output_M > money)
+						System.out.println("금액부족");
+					else money -= output_M;
+					break;
+				case 3 :
+					System.out.printf("잔고 : %d \n", money);
+					break;
+				case 4 :
+					System.out.println("이용해주셔서 감사합니다.");
+					run = false;
+					break;
+				
+			}
+			
+			//if(choose == 4) break;
+			
+		}
+		
+		
 	}
 }
