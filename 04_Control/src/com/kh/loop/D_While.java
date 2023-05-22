@@ -241,7 +241,7 @@ public class D_While {
 				
 			}
 			
-			//if(choose == 4) break;//dsfweef
+			//if(choose == 4) break;
 			
 		}
 		
