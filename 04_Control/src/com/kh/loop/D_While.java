@@ -131,7 +131,7 @@ public class D_While {
 		 * 
 		 */
 		
-		int random = (int)(Math.random() * 100);
+		int random = (int)(Math.random() * 100) + 1;
 		int input = 0;
 		int try_C = 1;
 			
