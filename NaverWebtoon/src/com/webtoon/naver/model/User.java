@@ -9,6 +9,14 @@ public class User {
 	public int cookies;
 	public char gender;
 	
+	public void signUp(String signId, String signPw) {
+		
+	}
+	
+	public void login(String id, String pw) {
+		
+	}
+	
 }
 
 
