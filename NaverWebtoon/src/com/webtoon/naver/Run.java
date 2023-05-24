@@ -8,6 +8,8 @@ public class Run {
 	public static void main(String[] args) {
 		User user = new User();
 		Webtoon wt = new Webtoon();
+		
+		wt.selectToon();
 	}
 
 }
