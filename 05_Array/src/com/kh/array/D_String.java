@@ -13,10 +13,6 @@ public class D_String {
 	public static void main(String[] args) {
 		D_String d = new D_String();
 		d.method1();
-		//d.method2();
-		//d.method3();
-		//d.method4();
-		//d.method5();
 	}
 	
 	
@@ -37,28 +33,3 @@ public class D_String {
 		 * 
 		 */
 	}
-	
-	
-	
-	public void method2() {
-		
-	}
-	
-	
-	
-	public void method3() {
-		
-	}
-	
-	
-	
-	public void method4() {
-		
-	}
-	
-	
-	
-	public void method5() {
-		
-	}
-}

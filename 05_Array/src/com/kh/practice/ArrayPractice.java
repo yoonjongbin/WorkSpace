@@ -70,7 +70,7 @@ public class ArrayPractice {
 
 		
 		/*for (int i = 0; i < arr.length; i++) {
-​
+
 			if (input.equals(arr[i])) {
 				send = true;
 				break;
@@ -142,7 +142,7 @@ public class ArrayPractice {
 	 * 
 	 */
 	public void method5() {
-
+		
 		
 		String temp = ""; 
 		
