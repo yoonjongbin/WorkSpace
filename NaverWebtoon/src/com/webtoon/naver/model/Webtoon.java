@@ -6,5 +6,4 @@ public class Webtoon {
 	
 	public int view_C;
 	
-	public 
 }

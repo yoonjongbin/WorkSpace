@@ -17,20 +17,20 @@ public class Video {
 	//Delete (삭제): 데이터베이스에서 데이터를 삭제합니다.
 	
 	
-	public void videoUpload() {
-		
+	public Video videoUpload() {
+		return null;
 	}
-	public void videoList() {
-		
+	public Video[] videoList() { // 동영상 목록
+		return null;
 	}
-	public void viewVideo() {
-		
+	public Video viewVideo() {
+		return null;
 	}
-	public void updateVideo() {
-		
+	public Video updateVideo() {
+		return null;
 	}
-	public void deleteVideio() {
-		
+	public boolean deleteVideio() {
+		return false;
 	}
 	
 	// 영상 업로드

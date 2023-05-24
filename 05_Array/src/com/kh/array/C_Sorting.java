@@ -24,7 +24,7 @@ public class C_Sorting {
 		
 		
 		// 1. 오름차순 정렬 (작은숫자부터 큰 숫자로 정렬)
-		Arrays.sort(arr); // DualPivotQuicksort <= Ctrl + Y
+		Arrays.sort(arr); // DualPivotQuicksort
 		System.out.println(Arrays.toString(arr));
 		
 		

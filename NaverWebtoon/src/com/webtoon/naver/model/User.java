@@ -10,7 +10,8 @@ public class User {
 	public char gender;
 	
 	public void signUp(String signId, String signPw) {
-		
+		id = signId;
+		pw = signPw;
 	}
 	
 	public void login(String id, String pw) {
