@@ -50,13 +50,24 @@ public class Run {
 		
 		Snack s =new Snack(kind, name, flavor, numOf, price);
 		//scr.saveData(s);
-		
+		System.out.println(scr.saveData(s));
 		if(scr.saveData(s)) {
 			System.out.println("저장 완료되었습니다");
 			System.out.println(scr.confirmData());
 		}
 		
-		System.out.println("저장완료 했습니다.");
+		System.out.print("추가로 구매할 개수를 입력하세요 : ");
+		//scr.editNumOf(sc.nextInt()); // SnackController NumOf만 수정
+		s.setNumOf(scr.editNumOf(sc.nextInt())); // Snack의 NumOf를 수정
+		System.out.println(scr.confirmData()); // 수정한 데이터 저장 전 값 출력
+		if(scr.saveData(s)) {
+			System.out.println("저장 완료되었습니다");
+			System.out.println(scr.confirmData());
+		}
+		System.out.println(scr.confirmData()); // 수정한 데이터 저장 후 값 출력
+		
+		
+		//System.out.println("저장완료 했습니다.");
 		
 		//System.out.printf("%s(%s - %s) %d개 %d원\n", s.getKind(), s.getName(), s.getFlavor(), s.getNumOf(), s.getPrice());
 		//System.out.println(scr.confirmData());

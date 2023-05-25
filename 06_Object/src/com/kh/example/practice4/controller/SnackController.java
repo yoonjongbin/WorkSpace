@@ -37,4 +37,15 @@ public class SnackController {
 		return this.s;
 	}
 	
+	public int editNumOf(int plus) {
+		//this.s.setNumOf(s.getNumOf() + plus); // SnackController의 NumOf만 수정
+		return s.getNumOf() + plus;
+		
+	}
+	
+
+	
+	
+	// Snack s 는 SnackController의 하나의 인스턴스로 호출 되어서 실행되는 것이기 때문에 Snack에 직접적인 영향을 줄수없다.
+	
 }

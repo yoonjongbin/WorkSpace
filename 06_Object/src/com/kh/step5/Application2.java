@@ -9,7 +9,7 @@ public class Application2 {
 		Book b2 = Book.getInstance();
 		
 		b1.setTitle("자바");
-		System.out.println(b2.getTitle()); // b1 인스턴스르 썼지만 b2 인스턴스의 getTitle()했을때 출력도 바뀐다.
+		System.out.println(b2.getTitle()); // b1 인스턴스로 setTitle() 썼지만 b2 인스턴스의 getTitle()했을때 출력도 바뀐다.
 	}
 
 }
