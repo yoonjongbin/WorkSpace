@@ -8,6 +8,8 @@ public class User {
 	private String nickname;
 	private char gender;
 	
+	Video video; // 유저가 비디오를 가지고 있다. (포함)
+	
 	
 	public User() {
 	}
