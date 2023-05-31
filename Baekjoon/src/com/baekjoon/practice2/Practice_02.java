@@ -27,30 +27,45 @@ public class Practice_02 {
 		int[] scoreResult = new int[repeatCount];
 		
 		for(int i = 0; i < repeatCount; i++) {
-			int score = 0;
 			
+			int score = 0;
+			int temp = 0;
 			str[i] = sc.nextLine();
+			
 			for(int j = 0; j < str[i].length(); j++) {
-				if(j > 0) {
-					if(str[i].charAt(j-1) == 'O'&& str[i].charAt(j-1)  == str[i].charAt(j)) {
-						int temp = 0;
-						temp = score + 1;
-						score += temp;
-					} else if(str[i].charAt(j-1) == 'O' && str[i].charAt(j-1) != str[i].charAt(j)) {
-						score += 1;
+				
+				
 						
+				if(j > 0) {
+					
+					if(str[i].charAt(j-1) == 'O' && str[i].charAt(j-1)  == str[i].charAt(j)) {
+						
+						temp++;
+						score += temp + 1;
+	
+					} else if(str[i].charAt(j) == 'O') {
+						score += 1;
 					}
+					else temp = 0;
+					
+					
 				} else {
-					score += 1;
-					continue;
+					if(str[i].charAt(j) == 'O')
+						score += 1;
 				}
-				scoreResult[i] = score;
+				
 				
 			}
-			
-			
-			
+				/*if(str[i].charAt(j) == 'O') {
+					score++;
+				}*/
+				scoreResult[i] = score;
+				
 		}
+			
+			
+			
+		
 		
 		for(int result : scoreResult) {
 			System.out.println(result);

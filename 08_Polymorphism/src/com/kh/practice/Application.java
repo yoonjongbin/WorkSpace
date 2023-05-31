@@ -35,7 +35,7 @@ public class Application {
 			System.out.println("1. 마이페이지");
 			System.out.println("2. 도서 검색하기");
 			System.out.println("3. 도서 대여하기");
-			System.out.println("4. 프로그램 종료");
+			System.out.println("4. 프로그램 종료\n");
 			
 			System.out.print("메뉴 번호 : ");
 			int select = Integer.parseInt(sc.nextLine());
