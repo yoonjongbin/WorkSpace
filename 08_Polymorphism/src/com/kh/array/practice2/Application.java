@@ -104,17 +104,20 @@ public class Application {
 			System.out.println("나이 : ");
 			int age = Integer.parseInt(sc.nextLine());
 			
+			// 1번 매개변수로 넘김
+			// mc.insertMember(id, name ,pw, email, gender, age);
+			
 			Member m = new Member(id, name, pw, email, gender, age);
+			// 2번 - 생성자로 값 임시 저장해서 넘김
+			// setter로 값을 임시 저장해서 넘김
 			mc.insertMember(m);
 		}
 		
 		
 		
-		// 1번 매개변수로 넘김
-		// mc.insertMember(id, name ,pw, email, gender, age);
 		
-		// 2번 - 생성자로 값 임시 저장해서 넘김
-		// setter로 값을 임시 저장해서 넘김
+		
+		
 		
 	}
 	

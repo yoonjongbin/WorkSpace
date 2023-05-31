@@ -8,7 +8,7 @@ public class MemberController {
 	
 	public int count = 0;
 	
-	public void insertMember(String id, String name, String pw, String email, char gender, int  age) {
+	/*public void insertMember(String id, String name, String pw, String email, char gender, int  age) {
 		mArr[count].setId(id);
 		mArr[count].setName(name);
 		mArr[count].setPw(pw);
@@ -17,7 +17,7 @@ public class MemberController {
 		mArr[count].setAge(age);
 		count++;
 		
-	}
+	}*/
 	
 	public void insertMember(Member m) {
 		// 객체 배열에 객체 하나씩 추가한다고 생각
