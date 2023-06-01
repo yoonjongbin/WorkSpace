@@ -17,7 +17,7 @@ public class Television implements RemoteControl{
 
 	@Override
 	public void search(String url) {
-		System.out.println("현재 TV 볼륨 :" + this.volume);
+		System.out.println("현재 TV 채널 :" + url);
 		
 	}
 
