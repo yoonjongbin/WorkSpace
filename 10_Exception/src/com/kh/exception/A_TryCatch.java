@@ -2,12 +2,12 @@ package com.kh.exception;
 
 /*
  * 컴파일 에러(compile-time error) : 컴파일 시에 발생하는 에러
- * 런타임 에러(runtime error) : 실행 시에 발생하는 에러 // 15day 핵심 예외처리 내용!!
+ * 런타임 에러(runtime error) : 실행 시에 발생하는 에러 // 15day 핵심 예외처리 내용!!(unchecked Exception)
  * 논리적 에러(logical error) : 실행은 되지만, 의도와 다르게 동작
  * 
  * 
  * 런타임 에러 2가지
- * -에러(error) : 프로그램 코드에 의해서 수습될 수 없는 심각한 오류
+ * -에러(error) : 프로그램 코드에 의해서 수습될 수 없는 심각한 오류(에러(Error)은 런타임 에러에 속하지 않고, checked Exception 이므로 반드시 try, catch를 해줘야 한다.)
  * 	--> 메모리 부족(OutOfMemoryError) 또는 스택오버플로우(StackOverflowError)
  * 
  * - 예외(exception) : 프로그램 코드에 의해서 수습될 수 있는 오류

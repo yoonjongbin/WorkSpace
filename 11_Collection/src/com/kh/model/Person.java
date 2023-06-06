@@ -55,7 +55,7 @@ public class Person implements Comparable<Person>{
 	@Override
 	public int compareTo(Person o) {
 		
-		//return this.age == o.age? 0 : this.age > o.age ? 1 : -1;
+		//return this.age == o.age? 0 : this.age > o.age ? 1 : -1; // 나이 순서대로 정렬
 		
 		return this.name.compareTo(o.name); // 이름 순서대로 정렬
 	}
