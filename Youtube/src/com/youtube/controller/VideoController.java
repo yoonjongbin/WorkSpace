@@ -1,9 +1,14 @@
 package com.youtube.controller;
 
+
+import com.youtube.Impl.VideoControllerImpl;
 import com.youtube.model.Video;
 
 public class VideoController implements VideoControllerImpl{
 
+	
+	
+	
 	@Override
 	public Video videoUpload() {
 		
@@ -19,6 +24,7 @@ public class VideoController implements VideoControllerImpl{
 	@Override
 	public Video viewVideo() {
 		
+		//return videoList;
 		return null;
 	}
 

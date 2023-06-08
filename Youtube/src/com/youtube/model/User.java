@@ -1,5 +1,8 @@
 package com.youtube.model;
 
+import java.util.List;
+import java.util.Objects;
+
 public class User {
 	private String id;
 	private String pw;
@@ -8,8 +11,9 @@ public class User {
 	private String nickname;
 	private char gender;
 	
-	Video video; // 유저가 비디오를 가지고 있다. (포함)
+	//Video video; // 유저가 비디오를 가지고 있다. (포함)
 	
+	private List<Video> video;
 	
 	public User() {
 	}
@@ -82,6 +86,27 @@ public class User {
 
 	public void setGender(char gender) {
 		this.gender = gender;
+	}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, gender, id, nickname, phone, pw, video);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(email, other.email) && gender == other.gender && Objects.equals(id, other.id)
+				&& Objects.equals(nickname, other.nickname) && Objects.equals(phone, other.phone)
+				&& Objects.equals(pw, other.pw) && Objects.equals(video, other.video);
 	}
 
 

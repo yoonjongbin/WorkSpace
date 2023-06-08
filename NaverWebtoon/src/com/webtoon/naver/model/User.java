@@ -5,6 +5,8 @@ public class User {
 	private String pw;
 	private String phoneNum;
 	private String email;
+	private String name;
+	private String nickName;
 	
 	private int cookies;
 	private char gender;
@@ -14,11 +16,14 @@ public class User {
 	}
 
 
-	public User(String id, String pw, String phoneNum, String email, int cookies, char gender) {
+	public User(String id, String pw, String phoneNum, String email, String name, String nickName,  int cookies, char gender) {
 		this.id = id;
 		this.pw = pw;
 		this.phoneNum = phoneNum;
 		this.email = email;
+		this.name = name;
+		this.nickName = nickName;
+		
 		this.cookies = cookies;
 		this.gender = gender;
 	}
@@ -62,6 +67,28 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getNickName() {
+		return nickName;
+	}
+
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
 
 	public int getCookies() {
@@ -86,9 +113,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", pw=" + pw + ", phoneNum=" + phoneNum + ", email=" + email + ", cookies=" + cookies
-				+ ", gender=" + gender + "]";
+		return "User [id=" + id + ", pw=" + pw + ", phoneNum=" + phoneNum + ", email=" + email + ", name=" + name
+				+ ", nickName=" + nickName + ", cookies=" + cookies + ", gender=" + gender + "]";
 	}
+
+
+	
 	
 	
 	

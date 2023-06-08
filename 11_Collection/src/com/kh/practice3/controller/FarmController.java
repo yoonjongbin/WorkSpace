@@ -13,7 +13,7 @@ public class FarmController {
 	private ArrayList<Farm> list = new ArrayList<>(); // 고객이 구매한 농산물 저장용
 
 	public boolean addNewKind(Farm f, int amount) {
-
+		// containsKey() : map에 key가 존재하는가
 		// 전달 받은 f가 hMap 안에 key로 존재하지 않을 때
 
 		// f와 amount를 각각 키와 값으로 저장 후 true 반환
@@ -28,22 +28,31 @@ public class FarmController {
 //	
 //		}
 
-		Set<Farm> keys = hMap.keySet();
+		/*
+		 * Set<Farm> keys = hMap.keySet();
+		 * 
+		 * for (Farm key : keys) {
+		 * 
+		 * if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())) {
+		 * 
+		 * return false; }
+		 * 
+		 * }
+		 * 
+		 * hMap.put(f, amount);
+		 * 
+		 * 
+		 * 
+		 * return true;
+		 * 
+		 */
 
-		for (Farm key : keys) {
-
-			if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())) {
-				
-				return false;
-			}
-
+		if (!hMap.containsKey(f)) {
+			hMap.put(f, amount);
+			return true;
 		}
 
-		hMap.put(f, amount);
-
-		
-
-		return true;
+		return false;
 
 	}
 
@@ -54,20 +63,34 @@ public class FarmController {
 
 		// 존재하지 않을 경우 false 반환
 
+		/*
+		
 		Set<Farm> keys = hMap.keySet();
 
 		for (Farm key : keys) {
 
 			if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())) {
-				
+
 				hMap.remove(key);
-		
+
 				return true;
 			}
 
 		}
 		
+
 		return false;
+		
+		*/
+		
+		
+		if(hMap.containsKey(f)) { 
+			hMap.remove(f); 
+			return true; 
+		}
+		 
+		return false;
+		 
 	}
 
 	public boolean changeAmount(Farm f, int amount) {
@@ -76,20 +99,34 @@ public class FarmController {
 		// f와 amount 저장 후 true 반환
 
 		// 존재하지 않을 경우 false 반환
+		
+		/*
+		
 		Set<Farm> keys = hMap.keySet();
 
 		for (Farm key : keys) {
 
 			if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())) {
-				
+
 				hMap.put(key, amount);
-				
+
 				return true;
 			}
 
 		}
+
+		return false;
+
+		*/
+		
+		
+		if(hMap.containsKey(f)) { 
+			hMap.put(f, amount); 
+			return true; 
+		} 
 		
 		return false;
+		 
 	}
 
 	public HashMap<Farm, Integer> printFarm() {
@@ -104,24 +141,39 @@ public class FarmController {
 		// list에 f 추가, 그리고 hMap에 f 수량 1 감소, true 반환
 
 		// 존재하지 않으면 false 반환
+
+		/*
 		
 		Set<Farm> keys = hMap.keySet();
-		
 
 		for (Farm key : keys) {
 
-			if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName()) && hMap.get(key).intValue() > 0) {
-				
+			if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())
+					&& hMap.get(key).intValue() > 0) {
+
 				list.add(f);
-				int amount = hMap.get(key).intValue()-1;
+				int amount = hMap.get(key).intValue() - 1;
 				changeAmount(f, amount);
-		
+
 				return true;
 			}
 
 		}
 
 		return false;
+		
+		*/
+
+		
+		if(hMap.containsKey(f) && hMap.get(f) > 0) { 
+			list.add(f); 
+			hMap.put(f,hMap.get(f) - 1); 
+			return true; 
+		}
+		 
+		return false;
+		 
+
 	}
 
 	public boolean removeFarm(Farm f) {
@@ -130,30 +182,37 @@ public class FarmController {
 		// list에 f 삭제, 그리고 hMap에 f 수량 1 증가, true 반환
 
 		// 아니면 false 반환
-		int index = 0;
-		
-		Set<Farm> keys = hMap.keySet();
-		
-		for(Farm List : list) {
-			if(List.getName().equals(f.getName()) && List.getKind().equals(f.getKind())) {
-				
-				list.remove(index);
-				
-				for(Farm key : keys) {
-					if (key.getKind().equals(f.getKind()) && key.getName().equals(f.getName())) {
-						int amount = hMap.get(key).intValue() + 1;
-						changeAmount(f, amount);
-						return true;
-					}
-						
-				}
-				
-			}
-				
-			index++;
+		/*
+		 * int index = 0;
+		 * 
+		 * Set<Farm> keys = hMap.keySet();
+		 * 
+		 * for(Farm List : list) { if(List.getName().equals(f.getName()) &&
+		 * List.getKind().equals(f.getKind())) {
+		 * 
+		 * list.remove(index);
+		 * 
+		 * for(Farm key : keys) { if (key.getKind().equals(f.getKind()) &&
+		 * key.getName().equals(f.getName())) { int amount = hMap.get(key).intValue() +
+		 * 1; changeAmount(f, amount); return true; }
+		 * 
+		 * }
+		 * 
+		 * }
+		 * 
+		 * index++; }
+		 * 
+		 * return false;
+		 */
+
+		if (list.contains(f)) {
+			list.remove(f);
+			hMap.put(f, hMap.get(f) + 1);
+			return true;
 		}
 
 		return false;
+
 	}
 
 	public ArrayList<Farm> printBuyFarm() {
