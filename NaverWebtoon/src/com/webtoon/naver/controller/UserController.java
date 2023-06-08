@@ -48,16 +48,14 @@ public class UserController implements UserControllerImpl {
 		
 		if(user_HM.containsKey(id) && user_HM.get(id).getPw().equals(oldPw)) {
 			user_HM.get(id).setPw(newPw);
-			int index = 0;
-			for(User user : userSet) {
-				if(userSet.contains(oldPw))
-					userSet
-				index++;
-			}
+			User u1 = user_HM.get(id);
+			userSet.add(u1);
 			return true;
-		}
+			}
 		return false;
-	}
+		}
+		
+	
 
 	@Override
 	public boolean changeNickname(String pw, String newName) {
@@ -66,6 +64,8 @@ public class UserController implements UserControllerImpl {
 		for(String key : keys) {
 			if(user_HM.get(key).getPw().equals(pw)) {
 				user_HM.get(key).setNickName(newName);
+				User u1 = user_HM.get(key);
+				userSet.add(u1);
 				return true;
 			}
 				
@@ -81,6 +81,8 @@ public class UserController implements UserControllerImpl {
 		for(String key : keys) {
 			if(user_HM.get(key).getPw().equals(pw)) {
 				user_HM.get(key).setPhoneNum(newPhone);
+				User u1 = user_HM.get(key);
+				userSet.add(u1);
 				return true;
 			}
 				
