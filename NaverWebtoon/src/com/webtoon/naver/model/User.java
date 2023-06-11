@@ -8,6 +8,7 @@ public class User {
 	private String name;
 	private String nickName;
 	
+	private int cash;
 	private int cookies;
 	private char gender;
 	
@@ -16,7 +17,7 @@ public class User {
 	}
 
 
-	public User(String id, String pw, String phoneNum, String email, String name, String nickName,  int cookies, char gender) {
+	public User(String id, String pw, String phoneNum, String email, String name, String nickName, int cash, int cookies, char gender) {
 		this.id = id;
 		this.pw = pw;
 		this.phoneNum = phoneNum;
@@ -24,6 +25,7 @@ public class User {
 		this.name = name;
 		this.nickName = nickName;
 		
+		this.cash = cash;
 		this.cookies = cookies;
 		this.gender = gender;
 	}
@@ -91,6 +93,16 @@ public class User {
 	}
 
 
+	public int getCash() {
+		return cash;
+	}
+
+
+	public void setCash(int cash) {
+		this.cash = cash;
+	}
+
+
 	public int getCookies() {
 		return cookies;
 	}
@@ -114,8 +126,11 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", pw=" + pw + ", phoneNum=" + phoneNum + ", email=" + email + ", name=" + name
-				+ ", nickName=" + nickName + ", cookies=" + cookies + ", gender=" + gender + "]";
+				+ ", nickName=" + nickName + ", cash=" + cash + ", cookies=" + cookies + ", gender=" + gender + "]";
 	}
+
+
+	
 
 
 	

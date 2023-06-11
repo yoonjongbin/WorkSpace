@@ -89,4 +89,34 @@ public class UserController implements UserControllerImpl {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean chargeCash(int input, User user) {
+		
+		int haveCash = user.getCash();
+		Set<String> keys = user_HM.keySet();
+		
+		for(String key : keys) {
+			if(user_HM.get(key).equals(user)) {
+				user_HM.get(key).setCash(haveCash + input);
+				return true;
+			}
+				
+		}
+		
+		return false;
+		
+	}
+
+	@Override
+	public void chargeCookie(int input, User user) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public HashMap<String, User> printUser() {
+		return user_HM;
+	}
+	
+	
 }

@@ -10,4 +10,8 @@ public interface UserControllerImpl {
 	boolean changePw(String id, String oldPw, String newPw);
 	boolean changeNickname(String pw, String newName);
 	boolean changePhone(String pw, String newPhone);
+	
+	boolean chargeCash(int input, User user);
+	
+	void chargeCookie(int input, User user);
 }
