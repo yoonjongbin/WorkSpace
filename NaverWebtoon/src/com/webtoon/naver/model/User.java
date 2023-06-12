@@ -1,5 +1,7 @@
 package com.webtoon.naver.model;
 
+import java.util.Objects;
+
 public class User {
 	private String id;
 	private String pw;
@@ -127,6 +129,28 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", pw=" + pw + ", phoneNum=" + phoneNum + ", email=" + email + ", name=" + name
 				+ ", nickName=" + nickName + ", cash=" + cash + ", cookies=" + cookies + ", gender=" + gender + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cash, cookies, email, gender, id, name, nickName, phoneNum, pw);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return cash == other.cash && cookies == other.cookies && Objects.equals(email, other.email)
+				&& gender == other.gender && Objects.equals(id, other.id) && Objects.equals(name, other.name)
+				&& Objects.equals(nickName, other.nickName) && Objects.equals(phoneNum, other.phoneNum)
+				&& Objects.equals(pw, other.pw);
 	}
 
 

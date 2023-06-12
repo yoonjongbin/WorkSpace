@@ -1,65 +1,87 @@
 package com.webtoon.naver.controller;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 import com.webtoon.naver.model.Webtoon;
 
 public class WebtoonController {
 	
-	Webtoon toon = new Webtoon();
+	//Webtoon toon = new Webtoon();
+	
+	Map<String, Webtoon> toonList = new HashMap<>();
+	Map<Webtoon, Integer> toonsEpi = new HashMap<>();
 	
 	
 	
-	public void selectToon() {
-		System.out.printf("%s 중 보고 싶은 웹툰을 적어주세요 : ", Arrays.toString(title));
-		String toonName = sc.nextLine();
+	
+	
+	public void setWebtoon() {
+		toonList.put("월", new Webtoon("약한영웅", "약한영웅", 0, 0, LocalDate.of(2020, 10, 23)));
+		toonList.put("화", new Webtoon("나 혼자만 레벨업", "나 혼자만 레벨업", 0, 0, LocalDate.of(2020, 3, 16)));
+		toonList.put("수", new Webtoon("김부장", "김부장", 0, 0, LocalDate.of(2022, 7, 27)));
+		toonList.put("목", new Webtoon("궤짝", "궤짝", 0, 0, LocalDate.of(2021, 8, 5)));
+		toonList.put("금", new Webtoon("스위트홈", "스위트홈", 0, 0, LocalDate.of(2017, 12, 16)));
+		toonList.put("토", new Webtoon("후레자식", "후레자식", 0, 0, LocalDate.of(2015, 6, 5)));
+		toonList.put("일", new Webtoon("놓지마정신줄", "놓지마정신줄", 0, 0, LocalDate.of(2014, 7, 26)));
 		
-		for(int i = 0; i < title.length; i++) {
-			if(toonName .equals(title[i])) {
-				episode();
+		
+		LocalDate today = LocalDate.now();
+		System.out.println(today);
+		
+		Set<String> keys = toonList.keySet();
+		
+		for(String key : keys) {
+			
+			long days = ChronoUnit.DAYS.between(toonList.get(key).getStartDate(), today);
+			int epi = (int)days/7;
+			
+			System.out.println(epi);
+			
+			toonsEpi.put(toonList.get(key), epi);
+				
+		}
+		
+		
+	}
+	
+	public void selectToon(String key) { // 만화선택 
+		// 사용자가 요일을 선택하면 해당 요일에 연재하는 만화 표시 및 episode() 호출
+		System.out.println(toonList.get(key).getToonName()+ "\n\n\n");
+		
+		Set<Webtoon> keys = toonsEpi.keySet();
+		
+		for(Webtoon key1 : keys) {
+			if(toonsEpi.containsKey(toonList.get(key))) {
+				episode(toonsEpi.get(key1), toonList.get(key));
 			}
 		}
+		
+		
+		
+		
 	}
 	
-	public void toon() {
-		
+	public void toonValue() { // 만화 내용
+		//episode()으로부터 호출 받아서 내용 화면에 출력
 		
 	}
 	
-	public void episode() {
+	public void episode(int epi, Webtoon toon) {	// 화수
 		
-		int select_E;
-		int i;
-		int episode_C = dayCount / 7;
+		//selectToon()으로부터 호출 받아서 에피소드 화면에 출력
+		int j = 1;
+		String[] episode = new String[epi];
 		
-		//int episodeCount1 = dayCount % 7;
-		
-		String[] episodeHave = new String[episode_C];
-		int[] view_C = new int[episode_C];
-		
-		
-		
-		for(i = 0; i < episodeHave.length; i++) {
-			episodeHave[i] = (i + 1) + "화";
-			System.out.println(episodeHave[i]);
-			
+		for(int i = 0; i < episode.length; i++) {
+			episode[i] = toon.getToonName() + (j++) + "화";
+			System.out.println(episode[i]);
 			
 		}
-		
-		System.out.print("에피소드 선택: ");
-		select_E = sc.nextInt();
-		
-		if(select_E > episodeHave.length)
-			System.out.println(episodeHave.length + "보다 작은 수를 입력하세요.");
-		if(select_E == i) {
-			System.out.println(i + "화 내용입니다.");
-			view_C[i-1] += 1;
-			System.out.println(Arrays.toString(view_C));
-		}
-			
-		
-		
-		
 		
 		
 	}
