@@ -1,6 +1,7 @@
 package com.webtoon.naver;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -21,6 +22,9 @@ public class Run {
 		
 		Date today = new Date();
 		
+		Calendar cal = Calendar.getInstance();
+		
+		cal.
 		
 		int date = today.getDay();
 		String dayOfWeek = "";

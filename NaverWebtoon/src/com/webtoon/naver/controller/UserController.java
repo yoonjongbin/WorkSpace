@@ -97,7 +97,7 @@ public class UserController implements UserControllerImpl {
 		Set<String> keys = user_HM.keySet();
 		
 		for(String key : keys) {
-			if(user_HM.get(key).equals(user)) {
+			if(user_HM.containsValue(user)) {
 				user_HM.get(key).setCash(haveCash + input);
 				return true;
 			}
@@ -109,8 +109,25 @@ public class UserController implements UserControllerImpl {
 	}
 
 	@Override
-	public void chargeCookie(int input, User user) {
-		// TODO Auto-generated method stub
+	public boolean chargeCookie(int input, User user) {
+		Set<String> keys = user_HM.keySet();
+		int haveCash = user.getCash();
+		int howMuch = 200 * input;
+		
+		
+		for(String key : keys) {
+			if(user_HM.containsValue(user) && howMuch <= haveCash) {
+				int haveCookie = user_HM.get(key).getCookies();
+				
+				user_HM.get(key).setCookies(haveCookie + input);
+				user_HM.get(key).setCash(haveCash - howMuch);
+				
+				return true;
+			}
+				
+		}
+		
+		return false;
 		
 	}
 	

@@ -13,5 +13,5 @@ public interface UserControllerImpl {
 	
 	boolean chargeCash(int input, User user);
 	
-	void chargeCookie(int input, User user);
+	boolean chargeCookie(int input, User user);
 }

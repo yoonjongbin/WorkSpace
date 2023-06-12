@@ -8,6 +8,8 @@ public class WebtoonController {
 	
 	Webtoon toon = new Webtoon();
 	
+	
+	
 	public void selectToon() {
 		System.out.printf("%s 중 보고 싶은 웹툰을 적어주세요 : ", Arrays.toString(title));
 		String toonName = sc.nextLine();
