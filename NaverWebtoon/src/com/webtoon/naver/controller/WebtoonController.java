@@ -53,21 +53,25 @@ public class WebtoonController {
 		// 사용자가 요일을 선택하면 해당 요일에 연재하는 만화 표시 및 episode() 호출
 		System.out.println(toonList.get(key).getToonName()+ "\n\n\n");
 		
-		Set<Webtoon> keys = toonsEpi.keySet();
+		//Set<Webtoon> keys = toonsEpi.keySet();
 		
-		for(Webtoon key1 : keys) {
-			if(toonsEpi.containsKey(toonList.get(key))) {
-				episode(toonsEpi.get(key1), toonList.get(key));
-			}
+//		for(Webtoon key1 : keys) {
+//			if(toonsEpi.containsKey(toonList.get(key))) {
+//				episode(toonsEpi.get(key), toonList.get(key1));
+//			}
+//		}
+		
+		if(toonsEpi.containsKey(toonList.get(key))) {
+			episode(toonsEpi.get(toonList.get(key)), toonList.get(key));
 		}
-		
-		
 		
 		
 	}
 	
 	public void toonValue() { // 만화 내용
 		//episode()으로부터 호출 받아서 내용 화면에 출력
+		
+		
 		
 	}
 	
