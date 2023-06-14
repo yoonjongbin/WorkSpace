@@ -17,12 +17,14 @@ public class Run {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		
+		UserController uc = new UserController();
 		WebtoonController wtc = new WebtoonController();
 		
 		wtc.setWebtoon();
 		
 		
-		
+		System.out.print("요일을 선택하세요(월~일) : ");
 		wtc.selectToon(sc.nextLine());
 //		
 //		User user = new User();

@@ -100,7 +100,7 @@ public class A_String {
 		String str2 = str.concat("!!!!!!");
 		System.out.println("str2 : " + str2);
 		
-		String str3 = str + "!!!!!!";
+		String str3 = str + "!?!?!?!?";
 		System.out.println("str3 : " + str3);
 		
 		System.out.println();
@@ -135,7 +135,7 @@ public class A_String {
 		System.out.println("index2 : " + index);			// 12
 		
 		index = str.indexOf('?');
-		System.out.println("index3 : " + index);			// -1
+		System.out.println("index3 : " + index);			// -1 전달받은 ch가 없으면 -1반환
 		
 		
 		System.out.println();
@@ -166,11 +166,11 @@ public class A_String {
 		
 		// 7. trim() : String
 		//	- 문자열의 앞뒤 공백을 제거한 새로운 문자열을 생성해서 리턴
-		String Str = "          Hello, World!         ";
-		System.out.println("trim 전 : " + Str);
+		String trim = "          Hello, World!         ";
+		System.out.println("trim 전 : " + trim);
 		
-		Str = Str.trim();
-		System.out.println("trim 후 : " + Str);
+		trim = trim.trim();
+		System.out.println("trim 후 : " + trim);
 		
 		
 		System.out.println();
@@ -179,7 +179,7 @@ public class A_String {
 		// 8. toCharArray() : char[]
 		//	- 문자열의 문자들을 문자 배열에 담아서 해당 배열의 주소값 리턴
 		
-		char[] arr = Str.toCharArray();
+		char[] arr = trim.toCharArray();
 		System.out.println(Arrays.toString(arr));
 		
 		System.out.println();

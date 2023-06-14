@@ -13,7 +13,7 @@ public class Webtoon {
 	private String toonValue; 	// 만화내용
 	private int viewCount;		// 조회수
 	private int good;			// 추천수
-	private LocalDate startDate;
+	private LocalDate startDate;	// 연재 시작 날짜
 	
 	public Webtoon() {}
 

@@ -18,9 +18,9 @@ public class A_Date {
 	public static void main(String[] args) {
 		A_Date a = new A_Date();
 //		a.method1();
-//		a.method2();
+		a.method2();
 //		a.method3();
-		a.practice();
+//		a.practice();
 		
 		
 	}
@@ -163,7 +163,7 @@ public class A_Date {
 	public void practice() {
 		
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			//SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 			
 			Calendar today = Calendar.getInstance();
 			Calendar date = Calendar.getInstance();
@@ -176,7 +176,7 @@ public class A_Date {
 			String[] birthArr = birth.split("/");
 			if(birthArr.length == 3) {
 				date.set((Integer.parseInt(birthArr[0])),(Integer.parseInt(birthArr[1])), (Integer.parseInt(birthArr[2])));
-				long timeInMillis = date.getTimeInMillis();
+				//long timeInMillis = date.getTimeInMillis();
 				
 				
 				

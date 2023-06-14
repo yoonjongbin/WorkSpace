@@ -16,9 +16,7 @@ public class B_Wrapper {
 		B_Wrapper b = new B_Wrapper();
 //		b.method1();
 		b.method2();
-//		b.method3();
-//		b.method4();
-//		b.method5();
+
 	}
 	
 	public void method1() {
@@ -31,9 +29,9 @@ public class B_Wrapper {
 		Double double1 = new Double(dNum1);
 		Double double2 = new Double(dNum2);
 		
-		System.out.println("dNum1 == dNum2 : " + (dNum1 == dNum2));
-		System.out.println("dNum2 == double2 : " + (dNum2 == double2));
-		System.out.println("double1 == double2 : " + (double1 == double2));
+		System.out.println("dNum1 == dNum2 : " + (dNum1 == dNum2));				// true
+		System.out.println("dNum2 == double2 : " + (dNum2 == double2));			// true
+		System.out.println("double1 == double2 : " + (double1 == double2));		// false
 		
 		
 		
@@ -95,11 +93,16 @@ public class B_Wrapper {
 		System.out.println("str1 + str2 : " + str1 + str2);		//103.14
 		
 		
+		
+		
 		// 1. 문자열을 기본 자료형으로 변경 :Wrapper 클래스에서 제공하는 parseXXX()
+		
 		int iNum = Integer.parseInt(str1);
 		double dNum = Double.parseDouble(str2);
 		
 		System.out.println("iNum + dNum : " + (iNum + dNum));	//13.14
+		
+		
 		
 		// 2. 기본 자료형을 문자열로 변경
 		//	String의 valueOf() 메서드를 사용하는 방법
@@ -109,24 +112,14 @@ public class B_Wrapper {
 		
 		System.out.println("str3 + str4 : " + str3 + str4);		// 103.14
 		
+		
+		
 		//	Wrapper 클래스에서 제공하는 valueOf().toString() 메서드를 사용하는 방법
 		
 		String str5 = Integer.valueOf(iNum).toString();
 		String str6 = Double.valueOf(dNum).toString();
 		
 		System.out.println("str5 + str6 : " + str5 + str6);		// 103.14
-	}
-	public void method3() {
-		
-	}
-	public void method4() {
-		
-	}
-	public void method5() {
-		
-	}
-	public void method6() {
-		
 	}
 
 }

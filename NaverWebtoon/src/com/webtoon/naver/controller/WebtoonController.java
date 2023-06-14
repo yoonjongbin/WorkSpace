@@ -5,17 +5,20 @@ import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 import com.webtoon.naver.model.Webtoon;
 
 public class WebtoonController {
 	
+	Scanner sc = new Scanner(System.in);
+	
 	//Webtoon toon = new Webtoon();
 	
-	Map<String, Webtoon> toonList = new HashMap<>();
-	Map<Webtoon, Integer> toonsEpi = new HashMap<>();
-	
+	Map<String, Webtoon> toonList = new HashMap<>();	// 웹툰 정보를 담고있는 해시맵
+	Map<Webtoon, Integer> toonsEpi = new HashMap<>();	// 웹툰들이 각각 얼마나 연재 됬는지에 대한 정보를 담고 있는 해시맵
+	Map<Integer, String> toonValue = new HashMap<>();	// 에피소드마다 내용을 추가해주는 해시맵
 	
 	
 	
@@ -51,7 +54,7 @@ public class WebtoonController {
 	
 	public void selectToon(String key) { // 만화선택 
 		// 사용자가 요일을 선택하면 해당 요일에 연재하는 만화 표시 및 episode() 호출
-		System.out.println(toonList.get(key).getToonName()+ "\n\n\n");
+		System.out.println("선택된 웹툰: " + toonList.get(key).getToonName() + "\n\n\n");
 		
 		//Set<Webtoon> keys = toonsEpi.keySet();
 		
@@ -68,24 +71,38 @@ public class WebtoonController {
 		
 	}
 	
-	public void toonValue() { // 만화 내용
+	public void toonValue(int choose) { // 만화 내용
 		//episode()으로부터 호출 받아서 내용 화면에 출력
 		
-		
+		System.out.println(toonValue.get(choose));
 		
 	}
 	
-	public void episode(int epi, Webtoon toon) {	// 화수
+	public void episode(int epi, Webtoon toon) {	// 연재된 웹툰 출력
 		
 		//selectToon()으로부터 호출 받아서 에피소드 화면에 출력
 		int j = 1;
 		String[] episode = new String[epi];
 		
 		for(int i = 0; i < episode.length; i++) {
-			episode[i] = toon.getToonName() + (j++) + "화";
+			episode[i] = toon.getToonName() + j + "화";
 			System.out.println(episode[i]);
+			toonValue.put(j, toon.getToonValue() + (j++));
 			
 		}
+		
+		System.out.print("에피소드 선택(숫자) : ");
+		int choose = Integer.parseInt(sc.nextLine());
+		if(!(choose * 0 != 0) && choose > 0 && choose <= epi) {
+			System.out.println("내용 : " + toonValue.get(choose));
+			
+//			toonValue(choose);
+		}	else {
+			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+			episode(epi, toon);
+		}
+		
+		
 		
 		
 	}
