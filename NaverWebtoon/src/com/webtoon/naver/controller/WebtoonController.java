@@ -12,19 +12,11 @@ import com.webtoon.naver.model.Webtoon;
 
 public class WebtoonController {
 
-	
 	Scanner sc = new Scanner(System.in);
-	
-	
-	
-	Map<String, Webtoon> toonList = new HashMap<>();	// 웹툰 정보를 담고있는 해시맵
-	Map<Webtoon, Integer> toonsEpi = new HashMap<>();	// 웹툰들이 각각 얼마나 연재 됬는지에 대한 정보를 담고 있는 해시맵
-	Map<Integer, String> toonValue = new HashMap<>();	// 에피소드마다 내용을 추가해주는 해시맵
-	
-	
-	
-	
 
+	Map<String, Webtoon> toonList = new HashMap<>(); // 웹툰 정보를 담고있는 해시맵
+	Map<Webtoon, Integer> toonsEpi = new HashMap<>(); // 웹툰들이 각각 얼마나 연재 됬는지에 대한 정보를 담고 있는 해시맵
+	Map<Integer, String> toonValue = new HashMap<>(); // 에피소드마다 내용을 추가해주는 해시맵
 
 	public void setWebtoon() {
 		toonList.put("월", new Webtoon("약한영웅", "약한영웅", LocalDate.of(2020, 10, 23)));
@@ -36,7 +28,7 @@ public class WebtoonController {
 		toonList.put("일", new Webtoon("놓지마정신줄", "놓지마정신줄", LocalDate.of(2014, 7, 26)));
 
 		LocalDate today = LocalDate.now();
-		System.out.println(today);
+		System.out.println("오늘 날짜는 " + today + ", " + today.getDayOfWeek() + " 입니다.");
 
 		Set<String> keys = toonList.keySet();
 
@@ -45,33 +37,27 @@ public class WebtoonController {
 			long days = ChronoUnit.DAYS.between(toonList.get(key).getStartDate(), today);
 			int epi = (int) days / 7;
 
-			System.out.println(epi);
-
 			toonsEpi.put(toonList.get(key), epi);
 
 		}
 
 	}
 
-	public void selectToon(String key) { // 만화선택
+	public boolean selectToon(String key) { // 만화선택
 		// 사용자가 요일을 선택하면 해당 요일에 연재하는 만화 표시 및 episode() 호출
 
-		System.out.println("선택된 웹툰: " + toonList.get(key).getToonName() + "\n\n\n");
-		
-		
-		
-		if(toonsEpi.containsKey(toonList.get(key))) {
+		if (toonsEpi.containsKey(toonList.get(key))) {
+			
+			System.out.println("선택된 웹툰: " + toonList.get(key).getToonName() + "\n\n\n");
+			episode(toonsEpi.get(toonList.get(key)), toonList.get(key));
 
-		System.out.println(toonList.get(key).getToonName() + "\n\n\n");
-		episode(toonsEpi.get(toonList.get(key)), toonList.get(key));
-		
+			return true;
+
 		}
 
+		return false;
+
 	}
-
-	
-
-	
 
 	public void episode(int epi, Webtoon toon) { // 화수
 
@@ -102,8 +88,6 @@ public class WebtoonController {
 			episode(epi, toon);
 		}
 
-
 	}
-	
-	
+
 }

@@ -6,8 +6,9 @@ public interface UserControllerImpl {
 	
 	
 	boolean signUp(String signId, String signPw, User user);
-	String login(String id, String pw);
-	boolean changePw(String id, String oldPw, String newPw);
-	boolean changeName(String pw, String newName);
+	User login(String id, String pw);
+	void changePw(String newPw, User user);
+	void changeName(String pw, String newName);
+	void changePhone(String pw, String newPhone);
 	
 }
