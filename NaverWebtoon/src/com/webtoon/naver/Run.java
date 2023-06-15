@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
-
-import com.kh.practice4.model.Member;
 import com.webtoon.naver.controller.UserController;
 import com.webtoon.naver.controller.WebtoonController;
 import com.webtoon.naver.model.User;
