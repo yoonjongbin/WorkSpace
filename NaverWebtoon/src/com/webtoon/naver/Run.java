@@ -1,14 +1,11 @@
 package com.webtoon.naver;
 
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
+
 import java.util.Scanner;
 import com.webtoon.naver.controller.UserController;
 import com.webtoon.naver.controller.WebtoonController;
 import com.webtoon.naver.model.User;
-import com.webtoon.naver.model.Webtoon;
+
 
 public class Run {
 	User userInfo = null;
@@ -23,11 +20,6 @@ public class Run {
 		Run run = new Run();
 
 		run.mainMenu();
-
-//		wtc.setWebtoon();
-//
-//		System.out.print("요일을 선택하세요(월~일) : ");
-//		wtc.selectToon(sc.nextLine());
 
 	}
 
@@ -66,13 +58,6 @@ public class Run {
 
 	public void signUp() {
 
-		/*
-		 * 회원가입하기 위해 아이디, 비밀번호, 이름을 받고 비밀번호와 이름은 Member 객체에 담고 id와 객체는
-		 * MemberController(mc)의 joinMembership()로 보냄
-		 * 
-		 * 받은 결과에 따라 true면 "성공적으로 회원가입 완료하였습니다." false면 "중복된 아이디입니다. 다시 입력해주세요." 출력
-		 * 
-		 */
 		boolean result = false;
 
 		System.out.print("아이디 : ");
@@ -123,9 +108,7 @@ public class Run {
 
 	public void toonMenu() {
 		try {
-			boolean check = true;
 
-			while (check) {
 				System.out.println("++++++ 로그인 상태 ++++++");
 				System.out.println("1. 만화보기");
 				System.out.println("2. 회원메뉴");
@@ -140,13 +123,13 @@ public class Run {
 					memberMenu();
 					break;
 				case 3:
-					check = false;
+					userInfo = null;
+					mainMenu();
 					break;
 				default:
 					throw new Exception();
 				}
 
-			}
 		} catch (Exception e) {
 			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 			toonMenu();
@@ -154,48 +137,34 @@ public class Run {
 	}
 
 	public void selectToon() {
-//		try {
-//			boolean check = true;
-//			
-//			while(check) {
-//				System.out.print("요일을 입력해주세요.(월~일) : ");
-//				String day = sc.nextLine();
-//				if(wtc.selectToon(day)) {
-//					wtc.selectToon(day);
-//					check = false;
-//				}
-//					
-//				else {
-//					throw new Exception();
-//				}
-//			}
-//			
-//		}catch(Exception e) {
-//			System.out.println("잘못 입력하셨습니다.");
-//			selectToon();
-//		}
-		try {
+
+		
 			wtc.setWebtoon();
 			System.out.print("요일을 입력해주세요.(월~일) : ");
 			String day = sc.nextLine();
 			
-			if (!wtc.selectToon(day)) throw new Exception();
-		} catch (Exception e) {
-			System.out.println("잘못 입력하셨습니다.");
-			selectToon();
-		}
+			if (!wtc.selectToon(day)) {
+				System.out.println("\"월 ~ 일\" 방식으로 입력해주세요.");
+				selectToon();
+			}
+			
+			toonMenu();
+		
 
 	}
 
 	public void memberMenu() {
 		try {
-			boolean check = true;
-			while (check) {
+			
 				System.out.println("++++++ 회원 메뉴 ++++++");
+				System.out.println("====== 회원정보 ======");
+				System.out.printf("이름 : %s \n아이디 : %s \n비번 : %s \n휴대폰 번호 : %s\n",  userInfo.getName(), 
+						  userInfo.getId(), userInfo.getPw(), userInfo.getPhoneNum());
+				System.out.println("===================");
 				System.out.println("1. 비밀번호 수정");
 				System.out.println("2. 이름 수정");
 				System.out.println("3. 전화번호 수정");
-				System.out.println("5. 로그아웃");
+				System.out.println("4. 로그아웃");
 				System.out.print("메뉴 번호 입력 : ");
 
 				switch (Integer.parseInt(sc.nextLine())) {
@@ -209,13 +178,14 @@ public class Run {
 					changePhoneNum();
 					break;
 				case 4:
-					check = false;
+					userInfo = null;
+					mainMenu();
 					break;
 				default:
 					throw new Exception();
 				}
 
-			}
+			
 		} catch (Exception e) {
 			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 			memberMenu();
@@ -228,7 +198,7 @@ public class Run {
 		System.out.print("비밀번호 확인 : ");
 		String pw = sc.nextLine();
 
-		if (uc.userChecked(pw, userInfo)) {
+		if (uc.userChecked(pw, userInfo)) {// 로그인 한 아이디의 비번과 입력 된 비번 비교해서 true면 비밀번호 변경
 			System.out.println("현재 비밀번호 : " + userInfo.getPw());
 
 			System.out.print("새로운 비밀번호 : ");
@@ -236,7 +206,7 @@ public class Run {
 
 			uc.changePw(newPw, userInfo);
 			System.out.println("비밀번호 변경 완료");
-		} else {
+		} else {	// false면 다시 입력
 			System.out.println("비밀번호가 일치하지 않습니다. 다시 입력하세요.");
 			changePassword();
 		}
@@ -248,7 +218,7 @@ public class Run {
 		System.out.print("비밀번호 확인 : ");
 		String pw = sc.nextLine();
 
-		if (uc.userChecked(pw, userInfo)) {
+		if (uc.userChecked(pw, userInfo)) {// 로그인 한 아이디의 비번과 입력 된 비번 비교해서 true면 이름 변경
 			System.out.println("현재 이름 : " + userInfo.getName());
 
 			System.out.print("새로운이름 : ");
@@ -256,7 +226,7 @@ public class Run {
 
 			uc.changeName(pw, newName);
 			System.out.println("이름 변경 완료");
-		} else {
+		} else {	// false면 다시 입력
 			System.out.println("비밀번호가 일치하지 않습니다. 다시 입력하세요.");
 			changeName();
 		}
@@ -267,15 +237,15 @@ public class Run {
 		System.out.print("비밀번호 확인 : ");
 		String pw = sc.nextLine();
 
-		if (uc.userChecked(pw, userInfo)) {
+		if (uc.userChecked(pw, userInfo)) {// 로그인 한 아이디의 비번과 입력 된 비번 비교해서 true면 전화번호 변경
 			System.out.println("현재 전화번호 : " + userInfo.getPhoneNum());
 
 			System.out.print("새로운 전화번호 : ");
 			String newPhoneNum = sc.nextLine();
 
-			uc.changeName(pw, newPhoneNum);
+			uc.changePhone(pw, newPhoneNum);
 			System.out.println("전화번호 변경 완료");
-		} else {
+		} else {	// false면 다시 입력
 			System.out.println("비밀번호가 일치하지 않습니다. 다시 입력하세요.");
 			changePhoneNum();
 		}
