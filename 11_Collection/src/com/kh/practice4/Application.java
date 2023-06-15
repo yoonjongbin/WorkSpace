@@ -212,13 +212,6 @@ public class Application {
 			System.out.println("이름 변경에 실패했습니다. 다시 입력해주세요.");
 			changeName();
 		}
-			
-		
-		
-		
-		
-
-		
 		
 	
 	}

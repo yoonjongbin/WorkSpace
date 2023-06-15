@@ -58,12 +58,12 @@ public class UserController implements UserControllerImpl {
 	
 
 	@Override
-	public boolean changeNickname(String pw, String newName) { // 닉네임 변경
+	public boolean changeName(String pw, String newName) { // 닉네임 변경
 		Set<String> keys = user_HM.keySet();
 		
 		for(String key : keys) {
 			if(user_HM.get(key).getPw().equals(pw)) {
-				user_HM.get(key).setNickName(newName);
+				user_HM.get(key).setName(newName);
 				User u1 = user_HM.get(key);
 				userSet.add(u1);
 				return true;
@@ -74,62 +74,8 @@ public class UserController implements UserControllerImpl {
 		return false;
 	}
 
-	@Override
-	public boolean changePhone(String pw, String newPhone) { // 번호변경
-		Set<String> keys = user_HM.keySet();
-		
-		for(String key : keys) {
-			if(user_HM.get(key).getPw().equals(pw)) {
-				user_HM.get(key).setPhoneNum(newPhone);
-				User u1 = user_HM.get(key);
-				userSet.add(u1);
-				return true;
-			}
-				
-		}
-		return false;
-	}
+	
 
-	@Override
-	public boolean chargeCash(int input, User user) { // 돈 충전
-		
-		int haveCash = user.getCash();
-		Set<String> keys = user_HM.keySet();
-		
-		for(String key : keys) {
-			if(user_HM.containsValue(user)) {
-				user_HM.get(key).setCash(haveCash + input);
-				return true;
-			}
-				
-		}
-		
-		return false;
-		
-	}
-
-	@Override
-	public boolean chargeCookie(int input, User user) { // 쿠기(웹툰재화) 충전
-		Set<String> keys = user_HM.keySet();
-		int haveCash = user.getCash();
-		int calMoney = 200 * input;
-		
-		
-		for(String key : keys) {
-			if(user_HM.containsValue(user) && haveCash >= calMoney) {
-				int haveCookie = user_HM.get(key).getCookies();
-				
-				user_HM.get(key).setCookies(haveCookie + input);
-				user_HM.get(key).setCash(haveCash - calMoney);
-				
-				return true;
-			}
-				
-		}
-		
-		return false;
-		
-	}
 	
 	public HashMap<String, User> printUser() {
 		return user_HM;

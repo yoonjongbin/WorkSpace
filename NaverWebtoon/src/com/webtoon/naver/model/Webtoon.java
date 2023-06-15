@@ -11,18 +11,14 @@ public class Webtoon {
 	//private String day; //= {"일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"};
 	private String toonName;	// 만화이름
 	private String toonValue; 	// 만화내용
-	private int viewCount;		// 조회수
-	private int good;			// 추천수
 	private LocalDate startDate;	// 연재 시작 날짜
 	
 	public Webtoon() {}
 
-	public Webtoon(String toonName, String toonValue, int viewCount, int good, LocalDate startDate) {
+	public Webtoon(String toonName, String toonValue, LocalDate startDate) {
 		super();
 		this.toonName = toonName;
 		this.toonValue = toonValue;
-		this.viewCount = viewCount;
-		this.good = good;
 		this.startDate = startDate;
 	}
 
@@ -42,21 +38,6 @@ public class Webtoon {
 		this.toonValue = toonValue;
 	}
 
-	public int getViewCount() {
-		return viewCount;
-	}
-
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
-	}
-
-	public int getGood() {
-		return good;
-	}
-
-	public void setGood(int good) {
-		this.good = good;
-	}
 
 	public LocalDate getStartDate() {
 		return startDate;
@@ -68,13 +49,12 @@ public class Webtoon {
 
 	@Override
 	public String toString() {
-		return "Webtoon [toonName=" + toonName + ", toonValue=" + toonValue + ", viewCount=" + viewCount + ", good="
-				+ good + ", startDate=" + startDate + "]";
+		return "Webtoon [toonName=" + toonName + ", toonValue=" + toonValue + ", startDate=" + startDate + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(good, startDate, toonName, toonValue, viewCount);
+		return Objects.hash(startDate, toonName, toonValue);
 	}
 
 	@Override
@@ -86,26 +66,9 @@ public class Webtoon {
 		if (getClass() != obj.getClass())
 			return false;
 		Webtoon other = (Webtoon) obj;
-		return good == other.good && Objects.equals(startDate, other.startDate)
-				&& Objects.equals(toonName, other.toonName) && Objects.equals(toonValue, other.toonValue)
-				&& viewCount == other.viewCount;
+		return Objects.equals(startDate, other.startDate) && Objects.equals(toonName, other.toonName)
+				&& Objects.equals(toonValue, other.toonValue);
 	}
-
-	
-
-	
-
-	
-	
-	
-	//private ArrayList title = new ArrayList();
-	//private ArrayList day = new ArrayList();
-	
-	//Scanner sc = new Scanner(System.in);
-	
-	//int dayCount = (int)(Math.random() * 100) + 1;
-
-	
 
 
 }

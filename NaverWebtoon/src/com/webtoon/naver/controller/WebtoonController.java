@@ -15,7 +15,7 @@ public class WebtoonController {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	//Webtoon toon = new Webtoon();
+	
 	
 	Map<String, Webtoon> toonList = new HashMap<>();	// 웹툰 정보를 담고있는 해시맵
 	Map<Webtoon, Integer> toonsEpi = new HashMap<>();	// 웹툰들이 각각 얼마나 연재 됬는지에 대한 정보를 담고 있는 해시맵
@@ -27,13 +27,13 @@ public class WebtoonController {
 
 
 	public void setWebtoon() {
-		toonList.put("월", new Webtoon("약한영웅", "약한영웅", 0, 0, LocalDate.of(2020, 10, 23)));
-		toonList.put("화", new Webtoon("나 혼자만 레벨업", "나 혼자만 레벨업", 0, 0, LocalDate.of(2020, 3, 16)));
-		toonList.put("수", new Webtoon("김부장", "김부장", 0, 0, LocalDate.of(2022, 7, 27)));
-		toonList.put("목", new Webtoon("궤짝", "궤짝", 0, 0, LocalDate.of(2021, 8, 5)));
-		toonList.put("금", new Webtoon("스위트홈", "스위트홈", 0, 0, LocalDate.of(2017, 12, 16)));
-		toonList.put("토", new Webtoon("후레자식", "후레자식", 0, 0, LocalDate.of(2015, 6, 5)));
-		toonList.put("일", new Webtoon("놓지마정신줄", "놓지마정신줄", 0, 0, LocalDate.of(2014, 7, 26)));
+		toonList.put("월", new Webtoon("약한영웅", "약한영웅", LocalDate.of(2020, 10, 23)));
+		toonList.put("화", new Webtoon("나 혼자만 레벨업", "나 혼자만 레벨업", LocalDate.of(2020, 3, 16)));
+		toonList.put("수", new Webtoon("김부장", "김부장", LocalDate.of(2022, 7, 27)));
+		toonList.put("목", new Webtoon("궤짝", "궤짝", LocalDate.of(2021, 8, 5)));
+		toonList.put("금", new Webtoon("스위트홈", "스위트홈", LocalDate.of(2017, 12, 16)));
+		toonList.put("토", new Webtoon("후레자식", "후레자식", LocalDate.of(2015, 6, 5)));
+		toonList.put("일", new Webtoon("놓지마정신줄", "놓지마정신줄", LocalDate.of(2014, 7, 26)));
 
 		LocalDate today = LocalDate.now();
 		System.out.println(today);
@@ -58,13 +58,7 @@ public class WebtoonController {
 
 		System.out.println("선택된 웹툰: " + toonList.get(key).getToonName() + "\n\n\n");
 		
-		//Set<Webtoon> keys = toonsEpi.keySet();
 		
-//		for(Webtoon key1 : keys) {
-//			if(toonsEpi.containsKey(toonList.get(key))) {
-//				episode(toonsEpi.get(key), toonList.get(key1));
-//			}
-//		}
 		
 		if(toonsEpi.containsKey(toonList.get(key))) {
 
@@ -77,15 +71,7 @@ public class WebtoonController {
 
 	
 
-		
-		
-		
-
-
-	public void toonValue() { // 만화 내용
-		// episode()으로부터 호출 받아서 내용 화면에 출력
-
-	}
+	
 
 	public void episode(int epi, Webtoon toon) { // 화수
 
@@ -118,4 +104,6 @@ public class WebtoonController {
 
 
 	}
+	
+	
 }
