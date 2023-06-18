@@ -7,34 +7,31 @@ public class Star {
 		int star = 1;
 		
 		
-		for(int j = 5; j > 6; j--) {
-			System.out.print(" ");
+//		for(int i = 5; i >= 0; i--) {
+//			for(int j = 0; j < i; j++)
+//				System.out.print(" ");
+//			for(int k = 0; k < 5-i; k++)
+//				System.out.print("*");
+//			
+//			System.out.println();
+//		}
+		
+		
+		for(int i = 5; i >= 0; i--) {
+			int a = i;
+			for(int j = 0; j < i; j++)
+				System.out.print(" ");
+			for(int k = 0; k < 5-(a-2); k++)
+				System.out.print("*");
 			
-			else if(j == 2) {
-				j = 3
-			}
-			else if(j == 1) {
-				System.out.println("*");
-				j = 4;
-				star += 2;	
-			}
+			System.out.println();
 		}
 
 			
-	
-				
+		
+	}	
 			
 }
 
 
-     *
-    ***
-   *****
-  *******
- *********
-***********
- *********
-  *******
-   *****
-    ***
-     *
+  
