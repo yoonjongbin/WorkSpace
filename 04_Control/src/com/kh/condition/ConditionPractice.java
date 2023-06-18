@@ -15,9 +15,9 @@ public class ConditionPractice {
 		//p.practice6();
 		//p.practice7();
 		//p.practice8();
-		//p.practice9();
+		p.practice9();
 		//p.practice10();
-		p.practice11();
+		//p.practice11();
 	}
 	
 	
@@ -307,6 +307,7 @@ public class ConditionPractice {
     public void practice9() {
     	int num1 = 0;
     	int num2 = 0;
+    	int result = 0;
     	
     	
     	String cal = "";
@@ -325,29 +326,56 @@ public class ConditionPractice {
     	
     	if(num1 > 0 && num2 > 0) 
     	{
-    		if(cal.equals("+") || cal.equals("-") || cal.equals("*") || cal.equals("/") || cal.equals("%")) {
+    		
+    		
+    		switch(cal) {
+			case("+"):
+				result = num1 + num2;
+				break;
+			case("-"):
+				result = num1 - num2;
+				break;
+			case("*"):
+				result = num1 * num2;
+				break;
+			case("/"):
+				result = num1 / num2;
+				break;
+			case("%"):
+				result = num1 % num2;
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다. (연산자)");
+				break;
+				
+			
+			}
+    		if(result != 0)
+    			System.out.println(result);
+//    		if(cal.equals("+") || cal.equals("-") || cal.equals("*") || cal.equals("/") || cal.equals("%")) {
     			
-    			if(cal.equals("+")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1+num2));
     			
-    			else if(cal.equals("+")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 + num2));
+//    			if(cal.equals("+")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1+num2));
+//    			
+//    			else if(cal.equals("+")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 + num2));
+//    			
+//    			else if(cal.equals("-")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 - num2));
+//    			
+//    			else if(cal.equals("*")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 * num2));
+//    			
+//    			else if(cal.equals("/")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 / num2));
+//    			
+//    			else if(cal.equals("%")) 
+//    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 % num2));
     			
-    			else if(cal.equals("-")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 - num2));
-    			
-    			else if(cal.equals("*")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 * num2));
-    			
-    			else if(cal.equals("/")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 / num2));
-    			
-    			else if(cal.equals("%")) 
-    				System.out.printf("%d %s %d = %d", num1, cal, num2, (num1 % num2));
-    			
-    		} else {
-    			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다. (연산자)");
-    		}
+//    		} else {
+//    			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다. (연산자)");
+//    		}
     		
     		 
     	} else System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다. (피연산자)");
