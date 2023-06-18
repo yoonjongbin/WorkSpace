@@ -4,7 +4,7 @@ public class Star {
 
 	public static void main(String[] args) {
 		
-		int star = 1;
+		int star;
 		
 		
 		for(int j = 5; j > 6; j--) {
