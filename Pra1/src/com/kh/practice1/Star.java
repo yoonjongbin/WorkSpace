@@ -1,40 +1,51 @@
 package com.kh.practice1;
 
+import java.util.Scanner;
+
 public class Star {
 
 	public static void main(String[] args) {
 		
-		int star;
-		
-		
-		for(int j = 5; j > 6; j--) {
-			System.out.print(" ");
-			
-			else if(j == 2) {
-				j = 3
-			}
-			else if(j == 1) {
-				System.out.println("*");
-				j = 4;
-				star += 2;	
-			}
-		}
 
+		Scanner sc = new Scanner(System.in);
+		
+		int size = Integer.parseInt(sc.nextLine());
+
+		
+		
+		
+		for(int i = 1; i < size+1; i++) {
 			
-	
-				
+			for(int j = 0; j < size-i; j++) {
+				System.out.print(" ");
+			}
+			
+			for(int k = 0; k < (2*i)-1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+			
+		}
+		
+		
+		for(int i = size-1; i > 0 ; i--) {
+			
+			for(int j = 0; j < size-i; j++) {
+				System.out.print(" ");
+			}
+			
+			for(int k = 0; k < (2*i)-1; k++) {
+				System.out.print("*");
+			}
+			
+			System.out.println();
+		}
+		
+		
+		
+	}	
 			
 }
 
 
-     *
-    ***
-   *****
-  *******
- *********
-***********
- *********
-  *******
-   *****
-    ***
-     *
+  

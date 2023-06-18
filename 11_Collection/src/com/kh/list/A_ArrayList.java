@@ -118,7 +118,7 @@ public class A_ArrayList {
 //			System.out.print(p.getName() + " ");
 		
 //			if(p.getAddr().equals("서울숲"))
-//				System.out.println(p.get(i));
+//				System.out.println(p);
 		
 //			sum += p.getAge();
 //		}
